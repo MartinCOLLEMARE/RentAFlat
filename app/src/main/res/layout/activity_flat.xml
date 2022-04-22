@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/bottom_textView_flat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#EB8D1F"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="@string/bottom_text"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/head_linearLayout_flat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EB8D1F"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+
+            android:layout_height="match_parent"
+            android:backgroundTint="#EB8D1F"
+            android:contentDescription="@android:string/no"
+            app:srcCompat="?attr/actionModeCloseDrawable" />
+
+        <TextView
+            android:id="@+id/head_textView_flat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EB8D1F"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/head_text_flat"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/flat_imageView"
+        android:layout_width="387dp"
+        android:layout_height="218dp"
+        android:paddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head_linearLayout_flat"
+        app:srcCompat="@drawable/Appart_2" />
+
+    <TextView
+        android:id="@+id/flat_description_textView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:text="@string/flat_text"
+        app:layout_constraintBottom_toTopOf="@+id/book_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flat_imageView" />
+
+    <Button
+        android:id="@+id/book_button"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#EB8D1F"
+        android:text="@string/book"
+        android:textColor="#4E342E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_textView_flat"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addToFavorite_button"
+        android:layout_width="204dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#EB8D1F"
+        android:text="@string/addToFavorite_text"
+        android:textColor="#4E342E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_textView_flat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/book_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
