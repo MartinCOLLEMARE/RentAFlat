@@ -36,6 +36,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="#EB8D1F"
             android:contentDescription="@android:string/no"
+            android:onClick="onReturnBtnClicked"
             app:srcCompat="?attr/actionModeCloseDrawable" />
 
         <TextView
@@ -80,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#EB8D1F"
+        android:onClick="onBookedBtnClicked"
         android:text="@string/book"
         android:textColor="#4E342E"
         android:textStyle="bold"
@@ -92,6 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#EB8D1F"
+        android:onClick="onAddToFavBtnClicked"
         android:text="@string/addToFavorite_text"
         android:textColor="#4E342E"
         android:textStyle="bold"
