@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,13 +36,14 @@ public class FlatActivity
         // do the setup
         FlatScreen.configure(this);
 
-        //if (savedInstanceState == null) {
-            //presenter.onStart();
+        if (savedInstanceState == null) {
+            presenter.onStart();
 
-        //} else {
-            //presenter.onRestart();
-       // }
+        } else {
+            presenter.onRestart();
+        }
     }
+
 
 
     private void loadImageFromURL(ImageView imageView, String imageUrl){
@@ -75,7 +77,17 @@ public class FlatActivity
 
             loadImageFromURL(findViewById(R.id.flat_imageView), flat.picture);
 
+            Button addToFavBtn = findViewById(R.id.addToFavorite_button);
+
+            if(flat.added_to_fav) {
+                addToFavBtn.setText(R.string.added_to_fav_text);
+            }
+            else {
+                addToFavBtn.setText(R.string.addToFavorite_text);
+            }
+
         }
+
 
     }
     public void onBookedBtnClicked(View view) {

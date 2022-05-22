@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Rent A Flat</string>
     <string name="head_text">RENT A FLAT</string>
-    <string name="bottom_text">Designed and coded by Martin Collemare \n Version 1.0</string>
+    <string name="bottom_text">Designed and developed by Martin Collemare \n Version 1.0</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="login_button_text">Log in</string>
@@ -14,7 +14,8 @@
     <string name="title_flat_text">Flat</string>
     <string name="head_text_favorite_list">My favorite flats</string>
     <string name="head_text_flat">Flat x</string>
-    <string name="addToFavorite_text">Add to Favorites</string>
+    <string name="addToFavorite_text">Add to favorites</string>
+    <string name="added_to_fav_text">Added to favorites</string>
     <string name="book">Book</string>
     <string name="flat_text">Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n</string>
 </resources>

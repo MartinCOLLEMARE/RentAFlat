@@ -2,6 +2,9 @@ package com.example.rentaflat.app;
 
 import com.example.rentaflat.data.FlatItem;
 import com.example.rentaflat.flat.FlatState;
+import com.example.rentaflat.flats.FlatsState;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class AppMediator {
@@ -9,6 +12,7 @@ public class AppMediator {
     private static AppMediator INSTANCE;
 
     private FlatState mFlatState;
+    private FlatsState mFlatsState;
 
     private FlatItem flat;
 
@@ -32,12 +36,14 @@ public class AppMediator {
     public FlatState getFlatState() {
      return mFlatState;
     }
+    public FlatsState getFlatsState() { return mFlatsState;}
 
 
     public FlatItem getFlat() {
         FlatItem item = flat;
         return item;
     }
+
 
 }
 

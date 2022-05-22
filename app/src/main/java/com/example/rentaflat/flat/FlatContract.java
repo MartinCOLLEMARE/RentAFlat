@@ -11,6 +11,8 @@ public interface FlatContract {
     }
 
     interface Presenter {
+        void onStart();
+        void onRestart();
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
         void onBookedBtnClicked();

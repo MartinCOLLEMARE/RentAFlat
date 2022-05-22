@@ -19,6 +19,14 @@ public class FlatPresenter implements FlatContract.Presenter {
         state = mediator.getFlatState();
     }
 
+    @Override
+    public void onStart() {
+    }
+
+    @Override
+    public void onRestart() {
+    }
+
     public FlatItem getDataFromFlatList() {
         return mediator.getFlat();
     }
@@ -36,7 +44,10 @@ public class FlatPresenter implements FlatContract.Presenter {
 
     @Override
     public void onAddToFavBtnClicked() {
+        boolean isAddedToFav = getDataFromFlatList().added_to_fav;
+        getDataFromFlatList().setFavorite(!isAddedToFav); //if it already has been added, we have to delete it, otherwise we add it
 
+        view.get().displayFlatData(state);
     }
 
     @Override
