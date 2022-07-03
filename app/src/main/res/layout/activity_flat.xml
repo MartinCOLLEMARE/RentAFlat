@@ -62,8 +62,7 @@
         android:paddingTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head_linearLayout_flat"
-        app:srcCompat="@drawable/Appart_2" />
+        app:layout_constraintTop_toBottomOf="@+id/head_linearLayout_flat" />
 
     <TextView
         android:id="@+id/flat_description_textView"

@@ -6,8 +6,8 @@ public interface FlatContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
-        void navigateToNextScreen();
         void displayFlatData(FlatViewModel viewModel);
+        void onFinish();
     }
 
     interface Presenter {

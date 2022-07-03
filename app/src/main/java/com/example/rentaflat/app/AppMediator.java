@@ -11,13 +11,14 @@ public class AppMediator {
 
     private static AppMediator INSTANCE;
 
-    private FlatState mFlatState;
-    private FlatsState mFlatsState;
+    private FlatState flatState;
+    private FlatsState flatsState;
 
     private FlatItem flat;
 
 
     private AppMediator() {
+        flatsState = new FlatsState();
 
     }
 
@@ -34,9 +35,9 @@ public class AppMediator {
     public static void resetInstance() { INSTANCE = null; }
 
     public FlatState getFlatState() {
-     return mFlatState;
+     return flatState;
     }
-    public FlatsState getFlatsState() { return mFlatsState;}
+    public FlatsState getFlatsState() { return flatsState;}
 
 
     public FlatItem getFlat() {

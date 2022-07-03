@@ -1,0 +1,60 @@
+{
+"flats": [
+  {
+    "id": 1,
+    "short_description":"Beautiful flat in Lyon's center, two rooms and a huge kitchen/living room, 55m²",
+    "long_description": "long",
+    "name": "Beautiful old flat in Lyon",
+    "picture": "https://v.seloger.com/s/width/800/visuels/0/k/3/k/0k3ko7czxetehypqxfc14yw9voer7nf3hplsf04u8.jpg"
+  },
+  {
+    "id": 2,
+    "short_description":"New flat in Lyon's outskirts, available now, 42m²",
+    "long_description": "long",
+    "name": "Brand new flat, outskirts of Lyon",
+    "picture": "https://v.seloger.com/s/width/600/visuels/1/o/b/9/1ob92ncb1z2xhj5mygw2ihiaz6orfhm8rr3drcb5s.jpg"
+  },
+  {
+    "id": 3,
+    "short_description":"des",
+    "long_description": "long",
+    "name": "nom",
+    "picture": "pic_address"
+  },
+  {
+    "id": 4,
+    "short_description":"des",
+    "long_description": "long",
+    "name": "nom",
+    "picture": "pic_address"
+  },
+  {
+    "id": 5,
+    "short_description":"des",
+    "long_description": "long",
+    "name": "nom",
+    "picture": "pic_address"
+  },
+  {
+    "id": 6,
+    "short_description":"des",
+    "long_description": "long",
+    "name": "nom",
+    "picture": "pic_address"
+  },
+  {
+    "id": 7,
+    "short_description":"des",
+    "long_description": "long",
+    "name": "nom",
+    "picture": "pic_address"
+  },
+  {
+    "id": 8,
+    "short_description":"des",
+    "long_description": "long",
+    "name": "nom",
+    "picture": "pic_address"
+  }
+]
+}

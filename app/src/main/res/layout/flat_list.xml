@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/flat_list"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:listitem="@layout/flat_list_content">
+    android:id="@+id/flat_list_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</ListView>
+    <ListView
+        android:id="@+id/flat_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/flat_list_content" />
+
+</LinearLayout>

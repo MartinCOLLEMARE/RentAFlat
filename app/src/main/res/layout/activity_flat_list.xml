@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".flats.FlatsActivity">
 
     <TextView
         android:id="@+id/bottom_textView_list"
@@ -28,13 +30,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
 
             android:layout_height="match_parent"
-            android:backgroundTint="#EB8D1F"
-            app:srcCompat="?attr/actionModeCloseDrawable" />
+            android:backgroundTint="@color/black"
+            android:contentDescription="Click here to go back"
+            app:srcCompat="?attr/actionModeCloseDrawable"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/head_textView_list"
@@ -54,8 +59,11 @@
             android:id="@+id/favorites_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="#EB8D1F"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:backgroundTint="@color/black"
+            android:contentDescription="Click here to see your favorite flats' list"
+            android:onClick="onFavBtnClicked"
+            app:srcCompat="@android:drawable/btn_star"
+            app:tint="#FFEB3B" />
     </LinearLayout>
 
     <FrameLayout

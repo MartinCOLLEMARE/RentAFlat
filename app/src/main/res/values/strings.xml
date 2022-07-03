@@ -15,7 +15,7 @@
     <string name="head_text_favorite_list">My favorite flats</string>
     <string name="head_text_flat">Flat x</string>
     <string name="addToFavorite_text">Add to favorites</string>
-    <string name="added_to_fav_text">Added to favorites</string>
+    <string name="added_to_fav_text">Delete from favorites</string>
     <string name="book">Book</string>
     <string name="flat_text">Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n Description flat \n</string>
 </resources>

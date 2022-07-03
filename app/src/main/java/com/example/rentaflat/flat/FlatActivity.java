@@ -36,6 +36,8 @@ public class FlatActivity
         // do the setup
         FlatScreen.configure(this);
 
+
+
         if (savedInstanceState == null) {
             presenter.onStart();
 
@@ -56,11 +58,6 @@ public class FlatActivity
     }
 
 
-    @Override
-    public void navigateToNextScreen() {
-        Intent intent = new Intent(this, FlatActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public void displayFlatData(FlatViewModel viewModel) {
@@ -79,7 +76,8 @@ public class FlatActivity
 
             Button addToFavBtn = findViewById(R.id.addToFavorite_button);
 
-            if(flat.added_to_fav) {
+
+            if(true) {
                 addToFavBtn.setText(R.string.added_to_fav_text);
             }
             else {
@@ -90,6 +88,12 @@ public class FlatActivity
 
 
     }
+
+    @Override
+    public void onFinish() {
+        finish();
+    }
+
     public void onBookedBtnClicked(View view) {
         presenter.onBookedBtnClicked();
     }

@@ -44,15 +44,16 @@ public class FlatPresenter implements FlatContract.Presenter {
 
     @Override
     public void onAddToFavBtnClicked() {
-        boolean isAddedToFav = getDataFromFlatList().added_to_fav;
-        getDataFromFlatList().setFavorite(!isAddedToFav); //if it already has been added, we have to delete it, otherwise we add it
+        state.addedToFavorites = !state.addedToFavorites;
+        //getDataFromFlatList().setFavorite(!isAddedToFav); //if it already has been added, we have to delete it, otherwise we add it
 
         view.get().displayFlatData(state);
     }
 
+
     @Override
     public void onReturnBtnClicked() {
-
+        view.get().onFinish();
     }
 
     public void injectView(WeakReference<FlatContract.View> view) {

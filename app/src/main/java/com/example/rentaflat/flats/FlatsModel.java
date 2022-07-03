@@ -1,33 +1,50 @@
 package com.example.rentaflat.flats;
 
+import android.content.Context;
+import android.util.Log;
+
+import com.example.rentaflat.data.FlatRepository;
+import com.example.rentaflat.data.RepositoryContract;
+import com.example.rentaflat.database.FavoriteDatabase;
+import com.example.rentaflat.database.FlatDatabase;
+
 public class FlatsModel implements FlatsContract.Model {
 
     public static String TAG = FlatsModel.class.getSimpleName();
 
-    private String data;
 
-    public FlatsModel(String data) {
-        this.data = data;
+    private FlatRepository repository;
+    //private FavoriteDatabase databaseFav;
+    //private FlatDatabase databaseFlat;
+    private Context context;
+
+    public FlatsModel(FlatRepository repository, Context context) {
+        this.repository = repository;
+        this.context = context;
+
     }
 
-    @Override
-    public String getStoredData() {
-        // Log.e(TAG, "getStoredData()");
-        return data;
+
+
+    public void fetchFlatsData(final RepositoryContract.GetFlatsCallback callback) {
+        Log.e(TAG, "fetchFlatsData()");
+
+        repository.loadCatalog(false, new RepositoryContract.FetchFlatsDataCallback() {
+
+            public void onFlatsDataFetched(boolean error) {
+                if(!error) {
+                    repository.getFlats(callback);
+                }
+            }
+        });
+
+
     }
 
-    @Override
-    public void onRestartScreen(String data) {
-        // Log.e(TAG, "onRestartScreen()");
+    public Context getContext() {
+        return this.context;
     }
 
-    @Override
-    public void onDataFromNextScreen(String data) {
-        // Log.e(TAG, "onDataFromNextScreen()");
-    }
 
-    @Override
-    public void onDataFromPreviousScreen(String data) {
-        // Log.e(TAG, "onDataFromPreviousScreen()");
-    }
+
 }
