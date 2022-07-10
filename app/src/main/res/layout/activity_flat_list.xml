@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
 
             android:layout_height="match_parent"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="#BC7C1F"
             android:contentDescription="Click here to go back"
             app:srcCompat="?attr/actionModeCloseDrawable"
             app:tint="@color/white" />
@@ -59,22 +59,22 @@
             android:id="@+id/favorites_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="#BC7C1F"
             android:contentDescription="Click here to see your favorite flats' list"
             android:onClick="onFavBtnClicked"
             app:srcCompat="@android:drawable/btn_star"
             app:tint="#FFEB3B" />
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
+    <ListView
+        android:id="@+id/listView_flats"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_textView_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/head_linearLayout">
 
-        <include layout="@layout/flat_list" />
-    </FrameLayout>
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

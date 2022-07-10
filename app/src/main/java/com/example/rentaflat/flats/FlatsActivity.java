@@ -2,10 +2,21 @@ package com.example.rentaflat.flats;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BlendMode;
+import android.graphics.BlendModeColorFilter;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,8 +36,17 @@ import com.example.rentaflat.data.Favorite;
 import com.example.rentaflat.data.FlatItem;
 import com.example.rentaflat.database.FavoriteDatabase;
 import com.example.rentaflat.database.FlatDatabase;
+import com.example.rentaflat.flat.FlatActivity;
 
+import org.xmlpull.v1.XmlPullParser;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class FlatsActivity
         extends AppCompatActivity implements FlatsContract.View {
@@ -36,108 +56,96 @@ public class FlatsActivity
     private FlatsContract.Presenter presenter;
     private Context context;
     private ListView flatList;
+    private FrameLayout frameLayoutList;
+
+    private static final String YELLOW_COLOR = "#FFEB3B";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flat_list);
-        setContentView(R.layout.flat_list);
-        setContentView(R.layout.flat_list_content);
-        getSupportActionBar().setTitle(R.string.app_name);
+
+        //getSupportActionBar().setTitle(R.string.app_name);
         // do the setup
         FlatsScreen.configure(this);
         //context = this.getBaseContext();
 
-        flatList = (ListView) findViewById(R.id.flat_list);
-        if(flatList == null) {
-            System.out.println("flatList broken");
-        }
-
-
         if (savedInstanceState == null) {
             presenter.onStart();
 
-        } else {
-            presenter.onRestart();
+
         }
         presenter.fetchFlatsData();
     }
 
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+
+
     public void navigateToFlatScreen(){
 
-        Intent intent = new Intent(this, FlatsActivity.class);
+        Intent intent = new Intent(this, FlatActivity.class);
         startActivity(intent);
     }
 
     @Override
     public void displayFlatListData(FlatsViewModel viewModel) {
 
-        List<Integer> favoritesFlats = viewModel.favoriteFlats;
+
         List<FlatItem> flats = viewModel.flats;
+
+        ImageButton favBtn = findViewById(R.id.favorites_button);
 
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FlatItem item =(FlatItem) view.getTag();
-                presenter.onFlatClicked(item);
+                FlatItem flat =(FlatItem) view.getTag();
+                presenter.onFlatClicked(flat);
 
             }
         };
+        favBtn.setColorFilter(android.R.color.white);
+
         if(viewModel.favoritesSelected) {
+
+            favBtn.setColorFilter(Color.parseColor(YELLOW_COLOR));
+
             List<FlatItem> flatsBis = flats;
-            for(FlatItem flat : flatsBis) {
-                if(!favoritesFlats.contains(flat.id)) {
-                    flats.remove(flat);
-                }
+            if(viewModel.favoriteFlats == null) {
+                flats = null;
+            }
+            else {
+                flats = viewModel.favoriteFlats;
             }
         }
+
 
         int counter = 0;
-
         if(flats != null ) {
-            for (FlatItem flat : flats) {
-                LinearLayout flatContent = findViewById(R.id.flat_content);
 
-                TextView flatTitle = findViewById(R.id.title_flat);
-                if(flatTitle == null ){
-                    System.out.println("Broken title");
+            final ListView listView = findViewById(R.id.listView_flats);
+            listView.setAdapter(new FlatsAdapter(this, flats));
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                    Object o = listView.getItemAtPosition(position);
+                    FlatItem flatSelected = (FlatItem)o;
+                    presenter.onFlatClicked(flatSelected);
                 }
-                flatTitle.setText(flat.name);
+            });
 
-                TextView flatShortDesc = findViewById(R.id.flat_short_description);
-                flatShortDesc.setText(flat.short_description);
-
-                ImageView imageView = findViewById(R.id.imageView_list);
-                if(imageView == null ){
-                    System.out.println("Broken");
-                }
-                loadImageFromURL(imageView, flat.picture);
-
-                flatContent.setOnClickListener(onClickListener);
-                flatContent.setTag(counter);
-
-                //flatList = findViewById(R.id.flat_list);
-                if(flatList == null ) {
-                    System.out.println("flatList broken");
-                }
-                flatList.addFooterView(flatContent);
-                counter++;
-            }
         }
-
-
+    }
+    public void onFavBtnClicked(View view ) {
+        presenter.onFavBtnClicked();
     }
 
-    private void loadImageFromURL(ImageView imageView, String imageUrl){
-        RequestManager reqManager = Glide.with(imageView.getContext());
-        RequestBuilder reqBuilder = reqManager.load(imageUrl);
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
-        reqBuilder.apply(reqOptions);
-        reqBuilder.into(imageView);
-    }
 
 
     @Override

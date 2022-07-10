@@ -19,7 +19,7 @@ public interface FlatsContract {
 
     interface Presenter {
         void onStart();
-        void onRestart();
+        void onResume();
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
         void onFavBtnClicked();

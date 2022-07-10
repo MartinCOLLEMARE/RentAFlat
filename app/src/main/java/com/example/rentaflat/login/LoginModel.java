@@ -1,14 +1,14 @@
-package com.example.rentaflat.flat;
+package com.example.rentaflat.login;
 
 import android.content.Context;
 
-public class FlatModel implements FlatContract.Model {
+public class LoginModel implements LoginContract.Model {
 
-    public static String TAG = FlatModel.class.getSimpleName();
+    public static String TAG = LoginModel.class.getSimpleName();
 
     private Context context;
 
-    public FlatModel(Context context) {
+    public LoginModel(Context context) {
         this.context = context;
     }
 

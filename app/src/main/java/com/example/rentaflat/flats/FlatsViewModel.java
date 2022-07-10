@@ -10,5 +10,5 @@ public class FlatsViewModel {
     public boolean favoritesSelected;
     public int userId;
     public List<FlatItem> flats;
-    public List<Integer> favoriteFlats;
+    public List<FlatItem> favoriteFlats;
 }

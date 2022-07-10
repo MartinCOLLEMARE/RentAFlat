@@ -1,4 +1,4 @@
-package com.example.rentaflat.flat;
+package com.example.rentaflat.login;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -7,9 +7,9 @@ import com.example.rentaflat.app.AppMediator;
 
 import java.lang.ref.WeakReference;
 
-public class FlatScreen {
+public class LoginScreen {
 
-    public static void configure(FlatContract.View view) {
+    public static void configure(LoginContract.View view) {
 
         WeakReference<FragmentActivity> context =
                 new WeakReference<>((FragmentActivity) view);
@@ -18,8 +18,8 @@ public class FlatScreen {
 
         AppMediator mediator = AppMediator.getInstance();
 
-        FlatContract.Presenter presenter = new FlatPresenter(mediator);
-        FlatContract.Model model = new FlatModel(context.get());
+        LoginContract.Presenter presenter = new LoginPresenter(mediator);
+        LoginContract.Model model = new LoginModel(context.get());
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));
 

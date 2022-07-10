@@ -4,57 +4,57 @@
     "id": 1,
     "short_description":"Beautiful flat in Lyon's center, two rooms and a huge kitchen/living room, 55m²",
     "long_description": "long",
-    "name": "Beautiful old flat in Lyon",
+    "name": "Beautiful old flat in Lyon, 1250€",
     "picture": "https://v.seloger.com/s/width/800/visuels/0/k/3/k/0k3ko7czxetehypqxfc14yw9voer7nf3hplsf04u8.jpg"
   },
   {
     "id": 2,
     "short_description":"New flat in Lyon's outskirts, available now, 42m²",
     "long_description": "long",
-    "name": "Brand new flat, outskirts of Lyon",
+    "name": "Brand new, outskirts of Lyon, 1500€",
     "picture": "https://v.seloger.com/s/width/600/visuels/1/o/b/9/1ob92ncb1z2xhj5mygw2ihiaz6orfhm8rr3drcb5s.jpg"
   },
   {
     "id": 3,
-    "short_description":"des",
+    "short_description":"In Lyon's first district, close to the metro Croix-Paquet",
     "long_description": "long",
-    "name": "nom",
-    "picture": "pic_address"
+    "name": "Furnished apartment, old Lyon, 800€",
+    "picture": "https://v.seloger.com/s/width/800/visuels/1/m/c/w/1mcwbllziup9ri80xjuxcjq239g7djbyspynxmosg.jpg"
   },
   {
     "id": 4,
-    "short_description":"des",
+    "short_description":"Beautiful flat in Confluence, located in the famous YCONE tower",
     "long_description": "long",
-    "name": "nom",
-    "picture": "pic_address"
+    "name": "Rent furnished flat, 2500€",
+    "picture": "https://v.seloger.com/s/width/800/visuels/1/i/k/e/1ikepmot33hpy346zywz07inweukjbnlogkmir710.jpg"
   },
   {
     "id": 5,
-    "short_description":"des",
+    "short_description":"Located in a calm sector, you'll have a free parking spot",
     "long_description": "long",
-    "name": "nom",
-    "picture": "pic_address"
+    "name": "Studio Court Albert Thomas, 666€ ",
+    "picture": "https://v.seloger.com/s/width/600/visuels/1/d/k/o/1dkoq5f3xldt7ogmp3zx5c1j9a3gljba6y459u1z4.jpg"
   },
   {
     "id": 6,
-    "short_description":"des",
+    "short_description":"Renovated and beautiful loft on the 5th floor",
     "long_description": "long",
-    "name": "nom",
-    "picture": "pic_address"
+    "name": "Duplex : 1 room, 71m², 1200€ ",
+    "picture": "https://v.seloger.com/s/width/800/visuels/0/w/5/n/0w5nu7f5go99ur42ytso9xdwkrbwxt24w1wwvysdc.jpg"
   },
   {
     "id": 7,
-    "short_description":"des",
+    "short_description":"Located in one of the most prestigious Lyon's co-property ",
     "long_description": "long",
-    "name": "nom",
-    "picture": "pic_address"
+    "name": "Flats to rent, 11000€",
+    "picture": "https://v.seloger.com/s/width/800/visuels/0/0/p/7/00p7cczo5nkzjsylk3irwust1j3b53xxhwmylhrsw.jpg"
   },
   {
     "id": 8,
-    "short_description":"des",
+    "short_description":"Flat renovated in 2021, metro at proximity",
     "long_description": "long",
-    "name": "nom",
-    "picture": "pic_address"
+    "name": "Flat in Quartier Monchat, 817€",
+    "picture": "https://v.seloger.com/s/width/600/visuels/0/i/n/q/0inqrv2x27dn39elbbpchk166h8ss6uxiaalok51c.jpg"
   }
 ]
 }

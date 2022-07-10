@@ -11,7 +11,7 @@ import com.example.rentaflat.data.User;
 @Database(entities = {User.class}, version = 1, exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
 
-    private static final String DB_NAME = "users.db";
+    private static final String DB_NAME = "user.db";
     private static volatile UserDatabase instance;
 
     static UserDatabase getInstance(Context context) {

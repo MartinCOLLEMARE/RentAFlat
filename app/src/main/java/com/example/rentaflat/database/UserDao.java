@@ -21,6 +21,9 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE email=:email")
     User getUserByEmail(String email);
 
+    @Query("SELECT EXISTS(SELECT * FROM user WHERE email=:email)")
+    Boolean userExists(String email);
+
     @Insert
     void insert(User user);
 

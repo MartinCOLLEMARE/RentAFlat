@@ -8,5 +8,6 @@ public class FlatViewModel {
     public FlatItem flat;
     public boolean addedToFavorites;
     public boolean booked;
+    public int userId;
 
 }

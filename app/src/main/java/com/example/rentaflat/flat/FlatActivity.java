@@ -30,7 +30,7 @@ public class FlatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flat);
-        getSupportActionBar().setTitle(R.string.app_name);
+        //getSupportActionBar().setTitle(R.string.app_name);
 
 
         // do the setup
@@ -44,6 +44,11 @@ public class FlatActivity
         } else {
             presenter.onRestart();
         }
+    }
+
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
     }
 
 
@@ -61,12 +66,12 @@ public class FlatActivity
 
     @Override
     public void displayFlatData(FlatViewModel viewModel) {
-        Log.e(TAG,"displayFlatData");
+        Log.d(TAG,"displayFlatData");
 
         FlatItem flat = viewModel.flat;
 
         if(flat!=null) {
-            TextView headTextView = findViewById(R.id.head_textView);
+            TextView headTextView = findViewById(R.id.head_textView_flat);
             headTextView.setText(flat.name);
 
             TextView descriptionTextView = findViewById(R.id.flat_description_textView);
@@ -77,7 +82,7 @@ public class FlatActivity
             Button addToFavBtn = findViewById(R.id.addToFavorite_button);
 
 
-            if(true) {
+            if(viewModel.addedToFavorites) {
                 addToFavBtn.setText(R.string.added_to_fav_text);
             }
             else {

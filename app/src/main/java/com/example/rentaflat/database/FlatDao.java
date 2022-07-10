@@ -19,6 +19,9 @@ public interface FlatDao {
     @Query("SELECT * FROM flats WHERE id=:id")
     FlatItem getFlat(int id);
 
+    @Query("SELECT * FROM flats WHERE id IN (:ids)")
+    List<FlatItem> getFlats(List<Integer> ids);
+
     @Insert
     void insert(FlatItem flat);
 

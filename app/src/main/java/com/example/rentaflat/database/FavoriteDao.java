@@ -1,11 +1,13 @@
 package com.example.rentaflat.database;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.rentaflat.data.Favorite;
+import com.example.rentaflat.data.FlatItem;
 
 import java.util.List;
 
@@ -18,9 +20,13 @@ public interface FavoriteDao {
     @Query("SELECT id_flat FROM favorite WHERE id_user=:id")
     List<Integer> getUserFavorites(int id);
 
+
     @Insert
     void insert(Favorite favorite);
 
     @Update
     void update(Favorite favorite);
+
+    @Delete
+    void delete(Favorite favorite);
 }

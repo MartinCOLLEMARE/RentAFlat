@@ -1,9 +1,21 @@
 package com.example.rentaflat.flat;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
+import androidx.room.Room;
+
 import com.example.rentaflat.app.AppMediator;
+import com.example.rentaflat.app.FlatsToFlatState;
+import com.example.rentaflat.data.AsyncTaskFavorites;
+import com.example.rentaflat.data.Favorite;
 import com.example.rentaflat.data.FlatItem;
+import com.example.rentaflat.database.FavoriteDatabase;
 
 import java.lang.ref.WeakReference;
+import java.sql.Savepoint;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class FlatPresenter implements FlatContract.Presenter {
 
@@ -21,23 +33,49 @@ public class FlatPresenter implements FlatContract.Presenter {
 
     @Override
     public void onStart() {
+
     }
 
     @Override
     public void onRestart() {
+        Log.d(TAG, "onRestart()");
     }
 
-    public FlatItem getDataFromFlatList() {
-        return mediator.getFlat();
-    }
+    public void onResume() {
+        Log.d(TAG, "onResume()");
 
-    public void fetchFlatData() {
-        FlatItem flat = getDataFromFlatList();
-        if(flat != null) {
-            state.flat = flat;
+        FlatsToFlatState savedState = mediator.getFlatsToFlatState();
+        if(savedState!= null) {
+            state.flat = savedState.flat;
+            state.userId = savedState.userID;
+
         }
+        List<Integer> favorites = null;
+        AsyncTaskFavorites asyncTaskFavorites = new AsyncTaskFavorites(model.getContext(), state.userId);
+        asyncTaskFavorites.execute();
+        try {
+            favorites = asyncTaskFavorites.get();
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+            
+        }
+
+        if(state.flat != null) {
+
+            if(favorites.contains(state.flat.id)) {
+                state.addedToFavorites = true; 
+            }
+            else { 
+                state.addedToFavorites = false;
+            }
+            
+            System.out.println("fav : " +state.addedToFavorites);
+        }
+
         view.get().displayFlatData(state);
     }
+
+
 
     public void onBookedBtnClicked() {
     }
@@ -45,7 +83,19 @@ public class FlatPresenter implements FlatContract.Presenter {
     @Override
     public void onAddToFavBtnClicked() {
         state.addedToFavorites = !state.addedToFavorites;
-        //getDataFromFlatList().setFavorite(!isAddedToFav); //if it already has been added, we have to delete it, otherwise we add it
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                FavoriteDatabase favoriteDatabase = Room.databaseBuilder(model.getContext(), FavoriteDatabase.class, "favorites.db").build();
+                if (state.addedToFavorites) {
+                    favoriteDatabase.getFavoriteDao().insert(new Favorite(state.userId, state.flat.id));
+
+                }
+                else {
+                    favoriteDatabase.getFavoriteDao().delete(new Favorite(state.userId, state.flat.id));
+                }
+            }
+        });
 
         view.get().displayFlatData(state);
     }
